@@ -7,7 +7,8 @@ const openai = new OpenAI({
   organization: process.env.OPENAI_ORG,
 });
 
-export default async function generate() {
+export default async function generate(numberGenerated: number) {
+  console.log(numberGenerated);
   const completion = await openai.chat.completions.create({
     messages: [{ role: "system", content: "You are a helpful assistant." }],
     model: "gpt-3.5-turbo",

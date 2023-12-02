@@ -4,6 +4,11 @@ import { program } from "commander";
 
 program
   .option("-n, --numTexts <number>", "Número de textos a serem gerados")
-  .parse(process.argv);
+  .parse(process.argv)
+  .action(async (options: { numTexts: number }) => {
+    await generate(options.numTexts);
 
-generate();
+    console.log(`Gerados ${options.numTexts} rooms com sucesso 🎉`);
+  });
+
+program.parse();
