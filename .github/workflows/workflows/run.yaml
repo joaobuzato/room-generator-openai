@@ -1,0 +1,28 @@
+name: Executar Job
+
+on:
+  workflow_dispatch:
+    inputs:
+      numeroInteiro:
+        description: "Quantos quartos gerar? "
+        required: true
+        default: 1
+
+jobs:
+  executar-node-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar node index.ts
+        run: npm start -- -n ${{ github.event.inputs.numeroInteiro }}
