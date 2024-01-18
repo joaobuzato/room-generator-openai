@@ -9,8 +9,12 @@ on:
         default: 1
 
 jobs:
-  executar-node-index:
+  executar-gerar-quartos:
     runs-on: ubuntu-latest
+
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_ORG: ${{ secrets.OPENAI_ORG }}
 
     steps:
       - name: Checkout do repositório
