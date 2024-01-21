@@ -31,7 +31,11 @@ export async function insertRoom(room: Room) {
         console.log("Error on room", room);
         return;
       }
-      return await response.json();
+      const lastId = (await response.json()).lastId;
+      room.doors.forEach(async (door) => {
+        await insertDoor(door, lastId);
+      });
+      return "Inserted room, " + room.title;
     })
     .catch((error) => {
       console.log("erro em insertRoom", error);

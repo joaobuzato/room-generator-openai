@@ -11,15 +11,15 @@ function getMessages(num_rooms: number): ChatCompletionMessageParam[] {
         [{
           "title": "Quarto vazio com o sol errado",
           "text": "Você está em um quarto vazio. A luz do sol bate de norte a sul, apesar de você ter certeza que nunca saiu do planeta terra. À sua frente, estão duas portas: ",
-          "path": "0001",
+          "path": "45fm",
           "doors": [
             {
-              "path": "0002",
+              "path": "af3x",
               "text": "Porta de ferro fundido",
               "color": "#123400"
             },
             {
-              "path": "0003",
+              "path": "df45",
               "text": "Porta de aço escovado",
               "color": "#103400"
             }
@@ -37,15 +37,15 @@ function getMessages(num_rooms: number): ChatCompletionMessageParam[] {
       content: `[{
       "title": "Quarto com cheiro de roupa suja",
       "text": "Este quarto possui um cheiro muito característico de roupa suja. Um cheiro que remete à um passado que não existe mais, onde aquela senhora com rosto de polvo lavava suas roupas no rio de água escura e turva. À sua frente, há duas portas:  ",
-      "path": "0002",
+      "path": "0k7h",
       "doors": [
         {
-          "path": "0005",
+          "path": "3d0o",
           "text": "Porta de quarto de criança",
           "color": "#123400"
         },
         {
-          "path": "0006",
+          "path": "k87m",
           "text": "Porta de repartição pública",
           "color": "#08765F"
         }

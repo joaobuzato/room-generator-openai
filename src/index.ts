@@ -15,16 +15,6 @@ program
         const response = await insertRoom(room);
         console.log(response);
       });
-      // const rooms = JSON.parse(response);
-      // rooms.forEach(async (room: Room) => {
-      //   insertRoom(room).then((response) => {
-      //     const id = response.lastId;
-      //     console.log("room Id", id);
-      //     room.doors.forEach(async (door) => {
-      //       await insertDoor(door, id);
-      //     });
-      //   });
-      // });
     });
   });
 
