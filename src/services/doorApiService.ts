@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 export type Room = {
   title: string;
   text: string;
@@ -9,12 +12,13 @@ type Door = {
   path: string;
   text: string;
   color: string;
+  room_id?: number;
 };
 
 const url = "http://localhost:8080";
 
 export async function insertRoom(room: Room) {
-  fetch(`${url}/room`, {
+  return fetch(`${url}/rooms`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,14 +26,37 @@ export async function insertRoom(room: Room) {
     },
     body: JSON.stringify(room),
   })
-    .then((response) => {
+    .then(async (response) => {
       if (response.status > 300) {
         console.log("Error on room", room);
         return;
       }
-      console.log("room salvo no banco ", room);
+      return await response.json();
     })
     .catch((error) => {
-      console.log(error);
+      console.log("erro em insertRoom", error);
+    });
+}
+
+export async function insertDoor(door: Door, roomId: number) {
+  door.room_id = roomId;
+  console.log("DOOR", door);
+  fetch(`${url}/doors`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: "",
+    },
+    body: JSON.stringify(door),
+  })
+    .then(async (response) => {
+      if (response.status > 300) {
+        console.log("Error on door", door);
+        return;
+      }
+      console.log("door salvo no banco ", door);
+    })
+    .catch((error) => {
+      console.log("erro em inserDoor", error);
     });
 }

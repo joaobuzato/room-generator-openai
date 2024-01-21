@@ -28,5 +28,5 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Executar node index.ts
+      - name: Executar GERAR QUARTOS
         run: npm start -- -n ${{ github.event.inputs.numeroInteiro }}
